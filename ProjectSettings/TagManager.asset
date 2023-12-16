@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Background
   - banana
+  - Trap
   layers:
   - Default
   - TransparentFX
