@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Background
+  - banana
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -49,4 +52,10 @@ TagManager:
     locked: 0
   - name: Layer 3
     uniqueID: 1045274567
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 243576055
+    locked: 0
+  - name: New Layer 5
+    uniqueID: 3414561411
     locked: 0
