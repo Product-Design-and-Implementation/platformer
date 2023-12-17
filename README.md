@@ -18,15 +18,6 @@
 - **Run Backward:** `A` key
 - **Jump:** `Spacebar`
 
-## Obstacles
-
-Beware of obstacles scattered throughout the jungle! If you touch an obstacle, the game will restart, so stay nimble and navigate carefully.
-
-
-## Demo
-
-Provide a link to a playable demo or showcase video if available.
-
 ## Installation
 
 Clone the repository
