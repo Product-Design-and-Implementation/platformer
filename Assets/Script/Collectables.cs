@@ -7,7 +7,7 @@ public class Collectables : MonoBehaviour
 {
     private int bananas = 0;
 
-    [SerializeField] private Text bananaText;
+    [SerializeField] private Text bananasText;
     [SerializeField] private AudioSource collectionSoundEffect;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,14 +17,15 @@ public class Collectables : MonoBehaviour
             if (collectionSoundEffect != null)
             {
                 collectionSoundEffect.Play();
+                collectionSoundEffect.time = 0f; // Reset audio playback position
             }
-
+                
             Destroy(collision.gameObject);
             bananas++;
 
-            if (bananaText != null)
+            if (bananasText != null)
             {
-                bananaText.text = "Total Bananas: " + bananas;
+                bananasText.text = "Total Bananas: " + bananas;
             }
         }
     }

@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
 
     private bool isFacingRight = true;
 
+    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource slideSoundEffect;
+
     private enum PlayerState
     {
         idle,
@@ -48,36 +51,36 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-  void UpdateAnimationState(float horizontalInput)
-{
-    PlayerState state;
+    void UpdateAnimationState(float horizontalInput)
+    {
+        PlayerState state;
 
-    if (player.velocity.y > 0.1f)
-    {
-        state = PlayerState.jump;
-    }
-    else if (Input.GetKeyDown(KeyCode.S) && IsGrounded())
-    {
-        state = PlayerState.slide;
-    }
-    else if (horizontalInput > 0f)
-    {
-        state = PlayerState.running;
-        isFacingRight = true;
-    }
-    else if (horizontalInput < 0f)
-    {
-        state = PlayerState.running;
-        isFacingRight = false;
-    }
-    else
-    {
-        state = PlayerState.idle;
-    }
+        if (player.velocity.y > 0.1f)
+        {
+            state = PlayerState.jump;
+        }
+        else if (Input.GetKeyDown(KeyCode.S) && IsGrounded())
+        {
+            state = PlayerState.slide;
+        }
+        else if (horizontalInput > 0f)
+        {
+            state = PlayerState.running;
+            isFacingRight = true;
+        }
+        else if (horizontalInput < 0f)
+        {
+            state = PlayerState.running;
+            isFacingRight = false;
+        }
+        else
+        {
+            state = PlayerState.idle;
+        }
 
-    SetPlayerState(state);
-    FlipCharacter();
-}
+        SetPlayerState(state);
+        FlipCharacter();
+    }
 
     void Jump()
     {
@@ -85,12 +88,24 @@ public class PlayerController : MonoBehaviour
         {
             player.velocity = new Vector2(player.velocity.x, jumpSpeed);
             SetPlayerState(PlayerState.jump);
+
+            // Play jump sound effect
+            if (jumpSoundEffect != null)
+            {
+                jumpSoundEffect.Play();
+            }
         }
     }
 
     void Slide()
     {
         SetPlayerState(PlayerState.slide);
+
+        // Play slide sound effect
+        if (slideSoundEffect != null)
+        {
+            slideSoundEffect.Play();
+        }
     }
 
     void ResetSlide()
@@ -100,8 +115,7 @@ public class PlayerController : MonoBehaviour
 
     bool IsGrounded()
     {
-        // Implement your grounded check logic here
-        // This is a basic placeholder that always returns true, modify it according to your game's needs
+        // grounded check logic here
         return true;
     }
 
