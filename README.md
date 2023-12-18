@@ -21,7 +21,7 @@
 ## Installation
 
 Clone the repository
-git clone [https://github.com/your-username/your-repository.git](https://github.com/Product-Design-and-Implementation/platformer.git)
+git clone https://github.com/your-username/your-repository.git](https://github.com/Product-Design-and-Implementation/platformer.git
 
 # Navigate to the project folder
 cd platformer
